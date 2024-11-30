@@ -20,6 +20,48 @@ my_dog = Dog('Rover')
 # print(Dog._legs)
 # print(my_dog.get_legs())
 
+###----------------------------
+## class inheritance
+###--------------------------
+
+class Chihuahua(Dog):
+    def speak(self):
+        print(f'{self.name} says: yup yup yup')
+
+    def wagtail(slef):
+        print('wagging!')
+
+dog = Chihuahua('Roxy')
+dog.speak()
+dog.wagtail()
+
+
+##making your own class
+class UniqueList(list):
+    ## this init overrides everything from the original class
+    ## to avoid that you need to add super init within it
+    def __init__(self):
+        ## add this line to override everything
+        ## so this gives parent construtor plus your new property
+        super().__init__()
+        self.something = 'someting'
+
+    def append(self, item):
+        if item in self:
+            return
+        # # this is calling the append function just defined
+        # # not the orginal one from the main function
+        # self.append(item)
+        super().append(item)
+
+
+my_list = UniqueList()
+my_list.append(1)
+my_list.append(1)
+my_list.append(2)
+
+print(my_list)
+
 ###______------------------------------
 ## Static and instance methods
 #############--------------------------
@@ -55,5 +97,5 @@ wordset = WordSet()
 wordset.add_text('Hi, I\'m Ryan! Here is the sentence I want to add!')
 wordset.add_text('Here is another sentence I want to add.')
 
-print(wordset.words)
+# print(wordset.words)
 
